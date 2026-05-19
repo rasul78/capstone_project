@@ -1,0 +1,278 @@
+# ════════════════════════════════════════════════════════════════
+#  Sentinel AI — .gitignore
+# ════════════════════════════════════════════════════════════════
+
+# ─── Секреты и ключи ─────────────────────────────────────────────
+# КРИТИЧНО: эти файлы НИКОГДА не должны попадать в git
+.env
+.env.local
+.env.production
+.env.*.local
+*.env
+backend/.env
+frontend/.env
+secrets/
+*.key
+*.pem
+*.p12
+*api_key*
+*api-key*
+
+# ─── Python ──────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+develop-eggs/
+downloads/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+.installed.cfg
+MANIFEST
+*.spec
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env-venv/
+backend/venv/
+backend/env/
+backend/.venv/
+
+# Python tooling
+.python-version
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.pyre/
+.pytype/
+cython_debug/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# ─── Node.js / React frontend ────────────────────────────────────
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+.pnpm-debug.log*
+
+# React build artifacts
+frontend/build/
+frontend/dist/
+frontend/.next/
+frontend/out/
+.cache/
+.parcel-cache/
+
+# ─── ML model caches (важно для Sentinel) ────────────────────────
+# BGE reranker — 2.27 GB, не нужно в git
+.cache/
+~/.cache/huggingface/
+huggingface/
+.huggingface/
+models/
+*.bin
+*.safetensors
+*.onnx
+*.pt
+*.pth
+*.ckpt
+
+# SentenceTransformers cache
+.sentence_transformers/
+sentence-transformers-cache/
+
+# ─── Databases ───────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+backend/sentinel.db
+backend/*.db
+postgres-data/
+pg_data/
+db_backup/
+*.sql.gz
+*.dump
+
+# ─── IDE / редакторы ─────────────────────────────────────────────
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Cursor
+.cursor/
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ─── OS-specific ─────────────────────────────────────────────────
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.Trash-*
+
+# ─── Логи и временные файлы ──────────────────────────────────────
+*.log
+logs/
+backend/logs/
+log/
+*.log.*
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostics output
+diagnose_*.txt
+*.diag
+
+# Crash reports
+crash.log
+*.dump
+
+# ─── Загруженные пользователем документы ────────────────────────
+# Тестовые / реальные загрузки — не в репо
+uploads/
+backend/uploads/
+backend/data/uploads/
+documents/private/
+data/raw/
+
+# ─── PostgreSQL / Redis локальные данные ─────────────────────────
+postgres_data/
+redis-data/
+dump.rdb
+appendonly.aof
+
+# ─── Видео-демо и большие медиа ──────────────────────────────────
+# Видео для capstone в репо хранить не надо — выложи на YouTube
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+demo-recording/
+recordings/
+
+# ─── Архивы ──────────────────────────────────────────────────────
+*.zip
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+
+# Кроме одного — финальная packagе для сдачи, если нужно
+!Capstone_submission.zip
+
+# ─── Документы Word (черновики) ─────────────────────────────────
+# Финальные .docx в docs/ хранить НУЖНО, но временные — нет
+~$*.docx
+~$*.doc
+~$*.pptx
+~$*.xlsx
+.~lock.*
+
+# ─── Тестовые и временные скрипты ───────────────────────────────
+test_output/
+test_temp/
+.scratch/
+scratch.py
+temp.py
+tmp/
+.tmp/
+
+# ─── Аналитика и метрики ─────────────────────────────────────────
+.langfuse/
+langfuse-cache/
+metrics/
+prometheus_data/
+
+# ─── pytest и benchmark cache ────────────────────────────────────
+.benchmarks/
+prof/
+*.prof
+
+# ─── MCP-related ─────────────────────────────────────────────────
+# Кэш MCP-клиента (если будешь добавлять)
+.mcp_cache/
+mcp_state/
+
+# Локальные оверрайды конфигурации MCP-серверов
+mcp_servers/*/config.local.json
+mcp_servers/local_settings.py
+
+# ─── Что-то специфическое для твоего проекта ────────────────────
+# Старые версии файлов
+*.bak
+*.backup
+*.old
+*_old.*
+*_backup.*
+
+# Файлы которые ты создал в процессе отладки
+diagnose_chat.py.bak
+fix_*.py
+debug_*.py

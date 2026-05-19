@@ -1,0 +1,1 @@
+"""legal_rk MCP server — bridge to adilet.zan.kz."""

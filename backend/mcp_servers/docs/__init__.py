@@ -1,0 +1,1 @@
+"""docs MCP server — exposes Sentinel AI knowledge base via MCP protocol."""

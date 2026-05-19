@@ -1,0 +1,31 @@
+Вариант 3. Test Suite (positive + negative)
+Эксперт явно требует. У Sentinel AI этого почти нет. Нужны:
+
+Positive tests: «загрузил doc → задал вопрос → получил релевантный ответ»
+Negative tests: «спросил то чего нет → должен честно отказаться», «подал кривой PDF», «LLM API упал → fallback сработал», «prompt injection → не выполнил»
+
+Вариант 4. Self-Review документ
+Тоже обязательный deliverable. Это документ где ты сам объясняешь:
+
+Какие технические решения принял и почему (LangGraph vs CrewAI/AutoGen — у тебя уже готовое обоснование!)
+Что бы переделал
+Trade-offs которые выбрал
+
+🟡 Сильно поднимет грейд
+Вариант 5. Сменить позиционирование с «корпоративный чат» на agentic workflow
+Сейчас Sentinel AI выглядит как «RAG-чат для документов». Эксперт хочет «agentic flow». Можно переподать тот же проект как:
+«Sentinel AI — Multi-Agent Corporate Knowledge Assistant» где:
+
+Planner Agent — разбивает вопрос на подзадачи
+DocSearch Agent (via custom MCP) — ищет в внутренних документах
+Legal Agent (via custom MCP) — проверяет соответствие праву РК
+WebResearch Agent — добирает актуальные данные
+Synthesis Agent — собирает финальный ответ
+Critic Agent — проверяет ответ на галлюцинации
+
+Это тот же код, но описанный как agentic flow. Поменять схему в README и Architecture Blueprint.
+
+
+
+Вариант 9. Streaming UI с прогрессом графа
+Покажи на фронте как «думают» агенты: Planner → DocSearch → Legal → Synthesis → Done. У тебя уже есть WebSocket из патча — на нём можно это собрать.

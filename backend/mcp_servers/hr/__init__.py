@@ -1,0 +1,1 @@
+"""hr MCP server — bridge to MRP/MZP data sources + computational HR tools."""
