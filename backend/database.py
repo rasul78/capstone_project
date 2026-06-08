@@ -17,6 +17,9 @@ DATABASE_URL = os.getenv(
     "postgresql://sentinel:sentinel123@localhost:5432/sentinel_ai"
 )
 
+# Railway/Heroku отдают адрес как postgres://, а asyncpg принимает только postgresql://
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 async def get_pool() -> Pool:
     global _pool
     if _pool is None:
