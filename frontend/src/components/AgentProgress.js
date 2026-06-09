@@ -34,7 +34,7 @@ export default function AgentProgress({ question, sessionId, useWeb, useMcp, onD
     abortRef.current = new AbortController();
     const run = async () => {
       try {
-        const resp = await fetch('http://localhost:8000/api/kb/chat/stream', {
+        const resp = await fetch((process.env.REACT_APP_API_URL || 'http://localhost:8000') + '/api/kb/chat/stream', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
